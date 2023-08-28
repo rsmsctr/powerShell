@@ -1,0 +1,1 @@
+Get-ADuser -filter * -SearchBase "OU=" -Properties MemberOf | Where-Object{!(($_.MemberOf -like "*All Employee*"))} | Select-Object Name,Samaccountname,objectclass | Export-Csv C:\temp -nti

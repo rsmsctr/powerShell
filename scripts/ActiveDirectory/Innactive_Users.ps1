@@ -1,0 +1,1 @@
+Search-ADAccount -AccountInactive -TimeSpan "60:00:00:00" -UsersOnly | Where-Object {$_.Enabled -eq $true } | Get-aduser -properties created,lastlogondate,canonicalname | Select-Object name,samaccountname,objectclass,created,lastlogondate,canonicalname | export-csv C:\temp
